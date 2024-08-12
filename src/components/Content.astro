@@ -26,27 +26,37 @@ import ThemeIcon from "../components/ThemeIcon.astro";
 <script>
   document.addEventListener("astro:page-load", () => {
     const headings = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+    const MAX_HEADING_LEVEL = 6;
 
     const generateTocContent = () => {
       let tocContent = "<ul class='overflow-auto w-full list-none m-0 p-0'>";
-      let levelCounters = [0, 0, 0, 0, 0, 0];
+      let levelCounters = new Array(MAX_HEADING_LEVEL).fill(0);
+
       headings.forEach((heading) => {
         const headingId = heading.id;
         const headingText = heading.textContent;
         const headingLevel = parseInt(heading.tagName.charAt(1), 10);
 
-        if (headingId && headingText && headingLevel) {
+        if (
+          headingId &&
+          headingText &&
+          headingLevel &&
+          headingLevel <= MAX_HEADING_LEVEL
+        ) {
           const level = headingLevel - 1;
           levelCounters[level]++;
           levelCounters.fill(0, level + 1);
-          var numbering = levelCounters.slice(1, level + 1).join(".");
-          if (numbering == "") numbering = "⚝";
+
+          const numbering =
+            level > 0 ? levelCounters.slice(1, level + 1).join(".") : "⚝";
+
           tocContent += `<li class="list-none m-0 p-0"><a class="w-full text-base font-semibold p-2 level-${headingLevel}" href="#${headingId}"><span class="toc-number">${numbering}</span>${headingText}</a></li>`;
         }
       });
       tocContent += "</ul>";
       return tocContent;
     };
+
     const tocBox = document.getElementById("content-box");
 
     if (tocBox) {
