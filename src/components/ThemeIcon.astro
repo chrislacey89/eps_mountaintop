@@ -51,7 +51,7 @@
     const storedTheme = localStorage.getItem("theme");
     const userPreferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
       .matches
-      ? "winter"
+      ? "pastel"
       : "dracula";
     const theme = storedTheme || userPreferredTheme;
     document.documentElement.setAttribute("data-theme", theme);
@@ -100,7 +100,7 @@
 
     const handleToggleClick = () => {
       const currentTheme = localStorage.getItem("theme");
-      const newTheme = currentTheme === "winter" ? "dracula" : "winter";
+      const newTheme = currentTheme === "pastel" ? "dracula" : "pastel";
       setTheme(newTheme);
       syncThemeToggle();
     };

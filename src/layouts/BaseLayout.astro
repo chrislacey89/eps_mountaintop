@@ -3,7 +3,6 @@ import "/node_modules/katex/dist/katex.min.css";
 import Profile from "../components/ProfileCard.astro";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import Content from "../components/Content.astro";
 import TagCard from "../components/TagCard.astro";
 import CategoryCard from "../components/CategoryCard.astro";
@@ -18,7 +17,7 @@ const { title, image, includeSidebar = true } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="zh-cn" class="bg-base-300" data-theme="winter">
+<html lang="zh-cn" class="bg-base-300" data-theme="pastel">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -29,7 +28,7 @@ const { title, image, includeSidebar = true } = Astro.props;
         const userPreferredTheme = window.matchMedia(
           "(prefers-color-scheme: dark)"
         ).matches
-          ? "winter"
+          ? "pastel"
           : "dracula";
         const theme = storedTheme || userPreferredTheme;
         document.documentElement.setAttribute("data-theme", theme);
@@ -67,7 +66,6 @@ const { title, image, includeSidebar = true } = Astro.props;
             <main>
               <slot />
             </main>
-            <Footer />
             <br />
           </div>
         </div>

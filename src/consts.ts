@@ -2,14 +2,14 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 // Site title and description
-export const SITE_TAB = "Frosti";
-export const SITE_TITLE = "Frosti 🧊";
+export const SITE_TAB = "Mountain Top";
+export const SITE_TITLE = "EPS Mountain Top ⛰️";
 export const SITE_DESCRIPTION = "A blog template";
 export const DATE_FORMAT = "ddd MMM DD YYYY";
 
 // User profile information
-export const USER_NAME = "EveSunMaple";
-export const USER_AVATAR = "/profile.webp";
+export const USER_NAME = "Madeline and Hannah";
+export const USER_AVATAR = "/us.webp";
 
 // Server and transition settings
 export const SERVER_URL = "https://demo.saroprock.com";
@@ -17,7 +17,7 @@ export const TRANSITION_API = true;
 
 // Site theme
 export const siteTheme = {
-  light: "winter",
+  light: "pastel",
   dark: "dracula",
 };
 
